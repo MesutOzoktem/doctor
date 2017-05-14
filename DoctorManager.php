@@ -72,7 +72,6 @@ require_once ("Registered.php");
                 return true;
             }
             else{
-                echo "lan ibne mesut";
                 false;
             }
         }
