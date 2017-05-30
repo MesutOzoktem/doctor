@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Created by PhpStorm.
  * User: zoro_
@@ -99,7 +99,7 @@ if(isset($_POST["tc"]) && isset($_POST["name"]) && isset($_POST["surname"]) && i
                         echo "<a href='RegisterInterface.php'>Hatalı Giris</a>";
                     }
                     ?>
-                    <button type="submit" class="btn btn-success">Log out</button>
+                    <button  type="submit" class="btn btn-success"><a style="color:#ffffff;" href="http://deu-doctor.hol.es/logout.php">Log out</a></button>
                 </form>
 
             </ul>
@@ -111,10 +111,10 @@ if(isset($_POST["tc"]) && isset($_POST["name"]) && isset($_POST["surname"]) && i
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li><a href="http://localhost:8080/doctor/interface.php">Doctor's Information <span class="sr-only">(current)</span></a></li>
-                <li><a href="http://localhost:8080/doctor/AddDoctor.php">Add a New Doctor</a></li>
-                <li><a href="http://localhost:8080/doctor/DeleteDoctor.php">Delete a Doctor</a></li>
-                <li class="active"><a href="http://localhost:8080/doctor/UpdateDoctor.php">Update Info of a Doctor</a></li>
+                <li><a href="http://deu-doctor.hol.es/Interface.php">Doctor's Information <span class="sr-only">(current)</span></a></li>
+                <li><a href="http://deu-doctor.hol.es/AddDoctor.php">Add a New Doctor</a></li>
+                <li><a href="http://deu-doctor.hol.es/DeleteDoctor.php">Delete a Doctor</a></li>
+                <li class="active"><a href="http://deu-doctor.hol.es/UpdateDoctor.php">Update Info of a Doctor</a></li>
             </ul>
         </div>
 

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Created by PhpStorm.
  * User: zoro_
@@ -68,7 +68,7 @@ require_once ("DoctorManager.php");
                     }
                     ?>
 
-                        <button type="submit" class="btn btn-success">Log out</button>
+                        <button  type="submit" class="btn btn-success"><a style="color:#ffffff;" href="http://deu-doctor.hol.es/logout.php">Log out</a></button>
 
                 </form>
 
@@ -81,10 +81,10 @@ require_once ("DoctorManager.php");
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="active"><a href="http://localhost:8080/doctor/interface.php">Doctor's Information <span class="sr-only">(current)</span></a></li>
-                <li><a href="http://localhost:8080/doctor/AddDoctor.php">Add a New Doctor</a></li>
-                <li><a href="http://localhost:8080/doctor/DeleteDoctor.php">Delete a Doctor</a></li>
-                <li><a href="http://localhost:8080/doctor/UpdateDoctor.php">Update Info of a Doctor</a></li>
+                <li class="active"><a href="http://deu-doctor.hol.es/interface.php">Doctor's Information <span class="sr-only">(current)</span></a></li>
+                <li><a href="http://deu-doctor.hol.es/AddDoctor.php">Add a New Doctor</a></li>
+                <li><a href="http://deu-doctor.hol.es/DeleteDoctor.php">Delete a Doctor</a></li>
+                <li><a href="http://deu-doctor.hol.es/UpdateDoctor.php">Update Info of a Doctor</a></li>
             </ul>
         </div>
 
@@ -139,6 +139,7 @@ require_once ("DoctorManager.php");
                     </table>
                 </form>
             </div>
+            
         </div>
     </div>
 

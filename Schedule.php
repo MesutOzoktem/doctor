@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Created by PhpStorm.
  * User: zoro_
@@ -24,13 +24,15 @@ if(isset($_SESSION['activeUser'])) {
 
         $errorMeesage = "";
 
-        $result = DoctorManager::insertNewEvent($picker1, $picker2, $title);
+        $result = DoctorManager::insertNewEvent($activeUser, $picker1, $picker2, $title);
 
         if (!$result) {
             $errorMeesage = "Silme başarısız";
         }
     }
 }
+
+
 
 ?>
 
@@ -100,7 +102,7 @@ if(isset($_SESSION['activeUser'])) {
                 defaultDate: '2017-05-06',
                 editable: true,
                 eventLimit: true, // allow "more" link when too many events
-                events: "events.php",
+                events: 'http://deu-doctor.hol.es/events.php',
 
             });
 
@@ -150,7 +152,7 @@ if(isset($_SESSION['activeUser'])) {
                         echo "<a href='RegisterInterface.php'>Hatalı Giris</a>";
                     }
                     ?>
-                    <button type="submit" class="btn btn-success">Log out</button>
+                    <button  type="submit" class="btn btn-success"><a style="color:#ffffff;" href="http://deu-doctor.hol.es/logout.php">Log out</a></button>
                 </form>
 
             </ul>
@@ -162,13 +164,13 @@ if(isset($_SESSION['activeUser'])) {
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="active"><a href="http://localhost:8080/doctor/Schedule.php">Working Schedule<span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="http://deu-doctor.hol.es/Schedule.php">Working Schedule<span class="sr-only">(current)</span></a></li>
 
             </ul>
             <ul class="nav nav-sidebar">
-                <li><a href="">Patient's Assays</a></li>
-                <li><a href="">Create Assay Request</a></li>
-                <li><a href="">Send to Emergency</a></li>
+                <li><a href="http://deu-doctor.hol.es/PatientAssay.php">Patient's Assays</a></li>
+                <li><a href="http://deu-doctor.hol.es/AssayRequest.php">Create Assay Request</a></li>
+                <li><a href="http://deu-doctor.hol.es/Emergency.php">Send to Emergency</a></li>
                 <li><a href="">Epicrisis</a></li>
             </ul>
         </div>
@@ -197,35 +199,102 @@ if(isset($_SESSION['activeUser'])) {
                             </div>
                         </div>
                     </div>
+				
                     <div class='col-md-5'>
-                        <div class="form-group">
+                        
+							<div class="form-group">
                             <label>Title</label>
                             <div class='input-group date' id='title'>
                                 <input type="text" name="title" class="form-control" required />
+								<button align="center" type="submit"  class="btn btn-info">Create Event</button>
 
                             </div>
+							</div>
+						
+						
                         </div>
-                    </div>
-                    <div class="w3_main_grid">
-                        <div class="w3_main_grid_right">
-                            <input type="submit" value="Submit">
-                        </div>
-                    </div>
+                   
+                    
                 </form>
+				<form class="w3_form_post">
+				 <div class='col-md-5'>
+				<div class="form-group">
+                                <label>Doctor ID</label>
+                                <div class='input-group date' id='title'>
+                                    <input type="text" id="send" class="form-control" required />
+									<button align="center" type="submit" id="btnCallSrvc" class="btn btn-info">Get Events</button>
+                                </div>
+                            </div>
+							</div>
+							</form>
+							
+							</div>
+                <div>
+				 
+
+             
+                    <script>
+                        // JQuery
+                        $(document).ready(function() { // when DOM is ready, this will be executed
+                            $("#btnCallSrvc").click(function(e) {
+                                var tc = $("#send").val();
+                                var url = "http://appointmentmodule.000webhostapp.com/listDoctorsAppointments.php";
+                                var url2 = "http://deu-doctor.hol.es/Appointment.php";
+                                $.ajax({ // start an ajax POST
+                                    method	: "post",
+                                    url		: url,
+                                    dataType: "text",
+                                    data	:  {
+                                        "doctorid"	: tc
+                                    },
+                                    success : function(reply) { // when ajax executed successfully
+                                        //console.log(reply);
+                                        var jsonToString = JSON.stringify(reply);
+                                        var json_obj = $.parseJSON(jsonToString);
+
+                                        console.log(json_obj);
+										console.log(jsonToString);
+
+                                                $.ajax({
+                                                        method: "post",
+                                                        url: url2,
+                                                        dataType: "json",
+                                                        data: {
+                                                            "appointments" : json_obj
+                                                        }
+
+                                                    }
+                                                )
+                                        /*for (i=0; i<json_obj.appointments.length; i++)
+                                        {
+                                            var appointments = json_obj.appointments[i];
+                                            var pName = appointments.PatientName;
+                                            var pSSN = appointments.PatientSSN;
+                                        }*/
+
+                                        //$("#divCallResult").html(table);
+                                    },
+                                    error   : function(err) { // some unknown error happened
+                                        console.log(JSON.stringify(err));
+                                        console.log(err);
+                                        alert(" There is an error! Please try again. " + err);
+                                    }
+                                });
+                            });
+                        });
+                    </script>
+                </div>
             </div>
         </div>
     </div>
 
 </div>
 
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-
 <div id='calendar'>
 
 </div>
+
+
 
 
 </body>

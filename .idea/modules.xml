@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../deneme/.idea/deneme.iml" filepath="$PROJECT_DIR$/../deneme/.idea/deneme.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/doctor.iml" filepath="$PROJECT_DIR$/.idea/doctor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../phpWS/.idea/phpWS.iml" filepath="$PROJECT_DIR$/../phpWS/.idea/phpWS.iml" />
       <module fileurl="file://$PROJECT_DIR$/../session/.idea/session.iml" filepath="$PROJECT_DIR$/../session/.idea/session.iml" />
     </modules>
   </component>

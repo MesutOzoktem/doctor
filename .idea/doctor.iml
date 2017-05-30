@@ -6,5 +6,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="deneme" />
     <orderEntry type="module" module-name="session" />
+    <orderEntry type="module" module-name="phpWS" />
   </component>
 </module>

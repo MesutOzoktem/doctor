@@ -1,9 +1,4 @@
-<!--A Design by W3layouts
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 <?php
 /**
  * Created by PhpStorm.
@@ -56,6 +51,7 @@ else if(isset($_POST["usernameLogin"]) && isset($_POST["passwordLogin"])) {
         {
             header("location: Schedule.php");
         }
+		
 
     }
 }
@@ -65,7 +61,7 @@ else if(isset($_POST["usernameLogin"]) && isset($_POST["passwordLogin"])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Stylish Creative Forms Flat Responsive Widget Template :: w3layouts</title>
+    <title>Doctor System</title>
 
     <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -89,7 +85,7 @@ else if(isset($_POST["usernameLogin"]) && isset($_POST["passwordLogin"])) {
 <div class="main">
     <canvas id="myCanvas"></canvas>
     <div class="main-w3l">
-        <h1 class="logo-w3">Stylish Creative Forms</h1>
+        <h1 class="logo-w3">Login or Register to the System</h1>
         <div class="w3layouts-main">
             <h2>Login Now</h2>
             <form method="POST" action="<?php $_PHP_SELF ?>">
@@ -123,18 +119,14 @@ else if(isset($_POST["usernameLogin"]) && isset($_POST["passwordLogin"])) {
             </form>
         </div>
         <div class="clear"></div>
-        <!-- //main -->
-
-        <!--footer-->
         <div class="footer-w3l">
-            <p>&copy; 2017 Stylish Creative Forms. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
-        </div>
-        <!--//footer-->
+            <p>&copy; 2017 Doctor System. All rights reserved | Design by <a href="http://w3layouts.com">Mesut Özöktem and Güray Turan.</a></p>
+        </div>     
     </div>
 </div>
 
 
-<!--scripts-->
+
 
 <!-- js -->
 <script type="text/javascript" src="js/jquery-2.1.4.minLogin.js"></script>
@@ -151,10 +143,6 @@ else if(isset($_POST["usernameLogin"]) && isset($_POST["passwordLogin"])) {
         });
     };
 </script>
-
-<!-- //particles-JavaScript -->
-<!--//scripts-->
-
 
 </body>
 </html>

@@ -2,23 +2,25 @@
 
     class db
     {
-        private $servername = "localhost";
+        /*private $servername = "localhost";
         private $username = "root";
         private $password = "";
-        private $dbname = "hospital";
+        private $dbname = "hospital";*/
+
+        private $servername = "mysql.hostinger.web.tr";
+        private $username = "u124044645_user";
+        private $password = "oH59hLYZV2YL";
+        private $dbname = "u124044645_name";
+
         private $connection;
 
-        /**
-         * @return mysqli
-         */
+     
         public function getConnection()
         {
             return $this->connection;
         }
 
-        /**
-         * @param mysqli $connection
-         */
+     
         public function setConnection($connection)
         {
             $this->connection = $connection;

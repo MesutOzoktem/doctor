@@ -1,13 +1,23 @@
 <?php
-//require("../../../connect/config.php");
+session_start();
+$activeUser = null;
+$activeUser = $_SESSION['activeUser'];
 
-$link = mysql_connect("localhost","root","") or die(mysql_error());
-mysql_select_db("hospital");
-$query = "SELECT title,start,end FROM events";
-$result = mysql_query($query) or die(mysql_error());
-$arr = array();
-while($row = mysql_fetch_assoc($result)){
-    $arr[] = $row;
+require_once ("db.php");
+require_once ("Event.php");
+
+
+$db = new db();
+$result = $db->getDataTable("SELECT username,title,start,end FROM events WHERE username = '$activeUser'");
+
+$events = array();
+
+while ($row = $result->fetch_assoc()) {
+    $eventsObj = new Event($row["username"], $row["title"], $row["start"], $row["end"]);
+    array_push($events, array("title"=>$eventsObj->getTitle(), "start"=>$eventsObj->getStart(), "end"=>$eventsObj->getEnd()));
 }
-echo json_encode($arr);
+
+echo json_encode($events);
+
+
 ?>

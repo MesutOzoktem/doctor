@@ -76,10 +76,10 @@ require_once ("Registered.php");
             }
         }
 
-        public static function insertNewEvent($picker1, $picker2, $title) {
+        public static function insertNewEvent($activeUser, $picker1, $picker2, $title) {
             $db = new db();
-            $success = $db->executeQuery("INSERT INTO events(title, start, end) 
-                                          VALUES ('$title', '$picker1', '$picker2')");
+            $success = $db->executeQuery("INSERT INTO events(username, title, start, end) 
+                                          VALUES ('$activeUser','$title', '$picker1', '$picker2')");
             return $success;
         }
 
